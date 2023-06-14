@@ -3,6 +3,7 @@ const runtimeConfig = useRuntimeConfig();
 const appConfig = useAppConfig();
 
 onMounted(() => {
+  console.log(runtimeConfig);
   setTimeout(() => {
     appConfig.theme.dark = false;
     runtimeConfig.public.apiBase = 'public path new';
@@ -18,6 +19,9 @@ function toggleTheme() {
     <div class="section">
       <h2>nuxt.config.ts</h2>
       <pre>runtime config api path: {{ runtimeConfig.public.apiBase }}</pre>
+      <pre>
+根據 .env file 設定的環境變數: {{ runtimeConfig.public.overwriteByEnv }}</pre
+      >
     </div>
     <div class="section">
       <h2>app.config.ts</h2>
